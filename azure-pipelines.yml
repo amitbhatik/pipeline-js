@@ -17,7 +17,6 @@ variables:
   dockerfilePath: '**/Dockerfile'
   tag: '$(Build.BuildId)'
   imagePullSecret: 'devopsacramit5638-auth'
-  azureSubscription: 'AKS AAD Service Connection'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -72,6 +71,7 @@ stages:
           - task: KubernetesManifest@0
             displayName: Deploy to Kubernetes cluster
             inputs:
+              azureSubscription: 'AKS AAD Service Connection'
               action: deploy
               manifests: |
                 $(Pipeline.Workspace)/manifests/deployment.yml
