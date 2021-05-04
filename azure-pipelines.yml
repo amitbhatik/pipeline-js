@@ -17,6 +17,7 @@ variables:
   dockerfilePath: '**/Dockerfile'
   tag: '$(Build.BuildId)'
   imagePullSecret: 'devopsacramit5638-auth'
+  azureSubscription: 'AKS AAD Service Connection'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
